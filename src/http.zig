@@ -87,7 +87,8 @@ pub const Signals = struct {
 
     pub fn get(this: Signals, comptime field: std.meta.FieldEnum(Signals)) bool {
         var ptr: *std.atomic.Value(bool) = @field(this, @tagName(field)) orelse return false;
-        return ptr.load(.Monotonic);
+        const value = ptr.load(.Monotonic);
+        return value;
     }
 };
 
@@ -787,9 +788,11 @@ pub const HTTPThread = struct {
                     if (http.is_tls) {
                         const socket = uws.SocketTLS.from(socket_ptr.value);
                         socket.shutdown();
+                        socket.shutdownRead();
                     } else {
                         const socket = uws.SocketTCP.from(socket_ptr.value);
                         socket.shutdown();
+                        socket.shutdownRead();
                     }
                 }
             }
