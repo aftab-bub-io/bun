@@ -11,4 +11,7 @@ cd build
 cmake "${CMAKE_FLAGS[@]}" .. -GNinja -B .
 ninja
 
+echo "BUN_DEPS_DIR: $BUN_DEPS_DIR"
+echo "BUN_DEPS_OUT_DIR: $BUN_DEPS_OUT_DIR"
+
 cp libbase64.a $BUN_DEPS_OUT_DIR/libbase64.a
