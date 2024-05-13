@@ -27,8 +27,6 @@ steps:
         agents:
           os: "darwin"
           arch: "aarch64"
-        artifact_paths:
-          - "$$BUN_DEPS_OUT_DIR/*"
         env:
           CPU_TARGET: "native"
         command: |
