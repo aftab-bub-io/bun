@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+echo "whoami: $(whoami)"
+
 # this is the environment script for building bun's dependencies
 # it sets c compiler and flags
 export SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
