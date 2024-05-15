@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
-echo "whoami: $(whoami)"
-echo "shell: $SHELL"
-echo "bash: $BASH"
+# hack for buildkite
+if [[ "${CI:-}" == "1" || "${CI:-}" == "true" ]]; then
+  if [[ $(uname -s) == 'Darwin' ]]; then
+    export BUN_INSTALL="$HOME/.bun"
+    export PATH=$BUN_INSTALL/bin:$PATH
+    export PATH="$(brew --prefix llvm@16)/bin:$PATH"
+  fi
+fi
 
 # this is the environment script for building bun's dependencies
 # it sets c compiler and flags
