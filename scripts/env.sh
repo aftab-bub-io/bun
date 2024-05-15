@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 echo "whoami: $(whoami)"
+echo "shell: $SHELL"
+echo "bash: $BASH"
 
 # this is the environment script for building bun's dependencies
 # it sets c compiler and flags
