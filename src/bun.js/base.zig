@@ -1528,6 +1528,7 @@ pub const Ref = struct {
 
 pub const Strong = @import("./Strong.zig").Strong;
 pub const Weak = @import("./Weak.zig").Weak;
+pub const WeakRefType = @import("./Weak.zig").WeakRefType;
 
 pub const BinaryType = enum {
     Buffer,
